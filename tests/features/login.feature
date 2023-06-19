@@ -1,12 +1,30 @@
-Feature: The Internet Guinea Pig Website
+Feature: Log in to the site
+    As a user
+    I want to login on Demoblaze
+    
+    Scenario: Error for empty fields
+      Given I am on the login modal
+      When I click on 'Log In' button
+      Then I should see 'Please fill out Username and Password.' error message 
 
-  Scenario Outline: As a user, I can log into the secure area
+    Scenario: Verify all required fields are present in the form
+      Then form components should be displayed
 
-    Given I am on the login page
-    When I login with <username> and <password>
-    Then I should see a flash message saying <message>
+    
+    Scenario: Wrong Password
+      When I fill my username
+      And I fill password with '12345'
+      And I click on 'Log In' button
+      Then I should see 'Wrong password.' error message
 
-    Examples:
-      | username | password             | message                        |
-      | tomsmith | SuperSecretPassword! | You logged into a secure area! |
-      | foobar   | barfoo               | Your username is invalid!      |
+
+    Scenario: Login Successfully
+      When I fill the form with valid credentials
+      And I click on 'Log In' button
+      Then I should log in successfully
+
+    Scenario: Username Logged displayed
+      And username should be displayed on the navbar
+
+    
+

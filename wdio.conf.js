@@ -23,7 +23,12 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './features/**/*.feature'
+        // './features/**/*.feature'
+        './tests/features/login.feature',
+        './tests/features/signUp.feature',
+        './tests/features/aboutUs.feature',
+
+
     ],
     // Patterns to exclude.
     exclude: [
@@ -53,7 +58,10 @@ export const config = {
     //
     capabilities: [{
         // capabilities for local browser web tests
-        browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
+        browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
+        'goog:chromeOptions': {
+            args: ['headless']
+        }
     }],
     //
     // ===================
@@ -62,7 +70,7 @@ export const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'silent',
     //
     // Set specific log levels per logger
     // loggers:
@@ -86,7 +94,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'https://www.demoblaze.com/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -130,7 +138,7 @@ export const config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/steps.js'],
+        require: ['./tests/step-definitions/*.js'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -205,8 +213,9 @@ export const config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: async function (capabilities, specs) {
+        await browser.url('https://www.demoblaze.com/')
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name
