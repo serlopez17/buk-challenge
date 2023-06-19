@@ -27,7 +27,7 @@ export const config = {
         './tests/features/login.feature',
         './tests/features/signUp.feature',
         './tests/features/aboutUs.feature',
-
+        './tests/features/contact.feature',
 
     ],
     // Patterns to exclude.

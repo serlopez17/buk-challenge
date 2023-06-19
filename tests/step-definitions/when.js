@@ -3,6 +3,7 @@ import LoginPage from '../pageobjects/login.page.js'
 import HomePage from '../pageobjects/home.page.js'
 import SignUpPage from '../pageobjects/signUp.page.js';
 import AboutUsPage from '../pageobjects/aboutUs.page.js';
+import ContactPage from '../pageobjects/contact.page.js';
 
 
 /**
@@ -61,6 +62,24 @@ When(/^I want to see all the controls displayed$/, async () => {
 
 When(/^I click on close btn$/, async () => {
     await AboutUsPage.closeModal();
+});
+
+/**
+ * ----------------- CONTACT ---------------------- 
+ */
+
+When(/^I click on 'Send Message' without fill the Form$/, async () => {
+    await ContactPage.clickOnSendMessage()
+});
+
+When(/^I fill the form$/, async () => {
+    await ContactPage.closeModal()
+    await HomePage.clickOnContactMenuButton()
+    await ContactPage.fillSendMessage()
+});
+
+When(/^click on send message button$/, async () => {
+    await ContactPage.clickOnSendMessage()
 });
 
 

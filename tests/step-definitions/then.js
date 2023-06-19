@@ -2,6 +2,7 @@ import { Then } from '@wdio/cucumber-framework';
 import LoginPage from '../pageobjects/login.page.js'
 import SignUpPage from '../pageobjects/signUp.page.js';
 import AboutUsPage from '../pageobjects/aboutUs.page.js';
+import ContactPage from '../pageobjects/contact.page.js';
 
 
 /**
@@ -43,6 +44,14 @@ Then(/^video should start playing$/, async () => {
 
 Then(/^modal shoudl be close$/, async () => {
     
+});
+
+/**
+ * ----------------- CONTACT ---------------------- 
+ */
+
+Then(/^I should see all labels and inputs displayed$/, async () => {
+    await ContactPage.formElementsAssertion()
 });
 
 

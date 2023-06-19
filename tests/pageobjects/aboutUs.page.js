@@ -65,6 +65,10 @@ class AboutUsPage extends Page{
         await this.closeModalButton.click();
     }
 
+    async open () {
+        return await super.open('')
+    }
+
 }
 
 export default new AboutUsPage()

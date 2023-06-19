@@ -1,4 +1,6 @@
-import Page from './page'
+import { contactEmail, contactName, contactMessage } from '../../constants/utils.js'
+import Page from './page.js'
+
 
 class ContactPage extends Page{
 
@@ -17,11 +19,36 @@ class ContactPage extends Page{
     get sendMessage () { return $('#exampleModal > div > div > div.modal-footer > button.btn.btn-primary') };
 
     async formElementsAssertion() {
+        await this.newMessageTitle.waitForDisplayed({timeout: 3000});
+        await expect(await this.contactEmailLabel).toExist();
+        await expect(await this.contactNameInput).toExist();
+        await expect(await this.contactNameLabel).toExist();
+        await expect(await this.contactNameInput).toExist();
+        await expect(await this.messageLabel).toExist();
+        await expect(await this.messageInput).toExist();
+        await expect(await this.closeButton).toExist();
+        await expect(await this.sendMessage).toExist();
 
     }
 
-    async sendMessage () {
+    async fillSendMessage () {
+        await this.contactEmailInput.waitForDisplayed({timeout: 5000});
+        await this.contactEmailInput.setValue(contactEmail);
+        await this.contactNameInput.setValue(contactName);
+        await this.messageInput.setValue(contactMessage);
+    }
 
+    async clickOnSendMessage () {
+        await this.sendMessage.waitForClickable({timeout: 5000});
+        await this.sendMessage.click();
+    }
+
+    async closeModal () {
+        await super.closeAlertPopUp();
+    }
+
+    async open (path) {
+        return await super.open(path);
     }
 
 
