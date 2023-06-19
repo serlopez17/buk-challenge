@@ -1,7 +1,11 @@
 name: Run Tests
-on: [push]
+on: 
+  push:
+    branches: [main]
+  schedule:
+     - cron: '0 12 * * *'
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
         - name: Checkout
