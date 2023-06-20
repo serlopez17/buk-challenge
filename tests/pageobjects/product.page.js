@@ -30,4 +30,4 @@ class ProductPage extends Page{
 
 }
 
-export default new ProductPage()
+export default new ProductPage();

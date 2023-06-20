@@ -1,4 +1,4 @@
-import { assert } from 'chai'
+import { assert } from 'chai';
 /**
 * main page object containing all methods, selectors and functionality
 * that is shared across all page objects
@@ -9,7 +9,7 @@ export default class Page {
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
     async open (path = '') {
-        return await browser.url(`https://www.demoblaze.com/${path}`)
+        return await browser.url(`https://www.demoblaze.com/${path}`);
     }
 
     async closeAlertPopUp () {
@@ -17,18 +17,18 @@ export default class Page {
     }
 
     async errorMessageAlert (err) {
-        await browser.pause(2000)
+        await browser.pause(2000);
         const msg = await browser.getAlertText();
         assert.equal(msg, err, 'Error Message mismatch');
     }
 
     async goToProductById (id) {
-        await browser.url(`https://www.demoblaze.com/prod.html?idp_=${id}`)
+        await browser.url(`https://www.demoblaze.com/prod.html?idp_=${id}`);
     }
 
     async getProducts () {
-        const products = await $$('#tbodyid .card-block')
-        return products
+        const products = await $$('#tbodyid .card-block');
+        return products;
     }
 
 
