@@ -1,9 +1,7 @@
 
 
-import { assert } from 'chai'
-import Page from './page.js';
-import HomePage from './home.page.js'
-import SignUpPage from './signUp.page.js'
+import Page from './page.js';;
+import SignUpPage from './signUp.page.js';
 
 class LoginPage extends Page {
 

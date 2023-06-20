@@ -40,3 +40,13 @@ Given(/^I am on the contact modal$/, async () => {
     await ContactPage.open()
     await HomePage.clickOnContactMenuButton()
 });
+
+/**
+ * ----------------- PRODUCTS ---------------------
+ */
+
+Given('I am on the {string} products page', async (category) => {
+    await HomePage.open()
+    await HomePage.moveToCategory(category)
+    await browser.pause(1000)
+});

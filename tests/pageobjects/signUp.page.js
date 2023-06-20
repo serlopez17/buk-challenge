@@ -1,7 +1,7 @@
-import { assert } from 'chai'
-import Page from './page.js'
-import HomePage from './home.page.js'
-import { userName, signUpPassword, userNameExist } from '../../constants/utils.js'
+import { assert } from 'chai';
+import Page from './page.js';
+import HomePage from './home.page.js';
+import { userName, signUpPassword, userNameExist } from '../../constants/utils.js';
 
 
 class SignUpPage extends Page {

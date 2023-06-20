@@ -2,10 +2,9 @@ import Page from './page'
 class CartPage extends Page{
 
     /**
-     * getters to get any selector on this page
+     * To do: Implement getters and all scenarios for cart page
      */
 
-    get loginMenuBtn () { return $('#login2') };
 
 }
 

@@ -54,4 +54,4 @@ class ContactPage extends Page{
 
 }
 
-export default new ContactPage()
+export default new ContactPage();

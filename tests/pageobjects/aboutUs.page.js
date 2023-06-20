@@ -1,5 +1,4 @@
 import Page from './page.js'
-import { showAlwaysButtons } from '../../constants/utils.js'
 
 class AboutUsPage extends Page{
 
@@ -26,22 +25,8 @@ class AboutUsPage extends Page{
 
     async initVideo () {
         await this.initVideoButton.waitForClickable({timeout:5000});
-        await this.initVideoButton.click()
+        await this.initVideoButton.click();
         
-    }
-
-    async forceAlwaysShowButtonsControls () {
-        // console.log(showAlwaysButtons);
-        console.log('ENTRO AQUI 2')
-        browser.execute ( () => {
-            console.log('ENTRO AQUI')
-            // console.log(document.getElementsByClassName('.video-js example-video-dimensions vjs-controls-enabled vjs-workinghover vjs-v7 vjs-has-started vjs-user-active vjs-playing'), 'TEST TEST');
-            // const elem = document.getElementsByClassName('.video-js example-video-dimensions vjs-controls-enabled vjs-workinghover vjs-v7 vjs-has-started vjs-user-active vjs-playing')
-            // console.log(elem)
-            // elem.classList.remove('.video-js example-video-dimensions vjs-controls-enabled vjs-workinghover vjs-v7 vjs-has-started vjs-user-active vjs-playing')
-            // elem.classList.add(showAlwaysButtons)
-            // document.getElementsByClassName('.video-js example-video-dimensions vjs-controls-enabled vjs-workinghover vjs-v7 vjs-has-started vjs-user-active vjs-playing').className = showAlwaysButtons;
-        })
     }
 
     async videoPlayerButtonsAssertion () {
@@ -66,9 +51,9 @@ class AboutUsPage extends Page{
     }
 
     async open () {
-        return await super.open('')
+        return await super.open('');
     }
 
 }
 
-export default new AboutUsPage()
+export default new AboutUsPage();

@@ -24,12 +24,12 @@ When(/^I fill my username$/, async () => {
 });
 
 When(/^I fill password with '(.*?)'$/, async (pwd) => {
-    await LoginPage.login('sergio_test', pwd)
+    await LoginPage.login('test', pwd)
 });
 
 When(/^I fill the form with valid credentials$/, async () => {
     // Change to env variables
-    await LoginPage.login('sergio_test', 'test')
+    await LoginPage.login(process.env.USERNAME, process.env.PASSWORD)
 });
 
 When(/^username should be displayed on the navbar$/, async () => {

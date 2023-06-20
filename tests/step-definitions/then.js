@@ -3,6 +3,7 @@ import LoginPage from '../pageobjects/login.page.js'
 import SignUpPage from '../pageobjects/signUp.page.js';
 import AboutUsPage from '../pageobjects/aboutUs.page.js';
 import ContactPage from '../pageobjects/contact.page.js';
+import HomePage from '../pageobjects/home.page.js';
 
 
 /**
@@ -53,6 +54,16 @@ Then(/^modal shoudl be close$/, async () => {
 Then(/^I should see all labels and inputs displayed$/, async () => {
     await ContactPage.formElementsAssertion()
 });
+
+/**
+ * ----------------- HOME PAGE ---------------------- 
+ */
+
+Then('each {string} should have name, price and description', async (category) => {
+    await HomePage.assertProductDataFromHome(category)
+});
+
+
 
 
 

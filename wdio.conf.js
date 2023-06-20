@@ -1,3 +1,4 @@
+import dotenv from 'dotenv'
 export const config = {
     //
     // ====================
@@ -28,6 +29,7 @@ export const config = {
         './tests/features/signUp.feature',
         './tests/features/aboutUs.feature',
         './tests/features/contact.feature',
+        './tests/features/home.feature',
 
     ],
     // Patterns to exclude.
@@ -59,9 +61,9 @@ export const config = {
     capabilities: [{
         // capabilities for local browser web tests
         browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
-        'goog:chromeOptions': {
-            args: ['headless']
-        }
+        // 'goog:chromeOptions': {
+        //     args: ['headless']
+        // }
     }],
     //
     // ===================
@@ -214,6 +216,7 @@ export const config = {
      * @param {object}         browser      instance of created browser/device session
      */
     before: async function (capabilities, specs) {
+        dotenv.config()
         await browser.url('https://www.demoblaze.com/')
     },
     /**

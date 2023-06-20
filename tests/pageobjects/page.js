@@ -22,10 +22,14 @@ export default class Page {
         assert.equal(msg, err, 'Error Message mismatch');
     }
 
-    async getProducts () {
-        const test = await $$('#tbodyid')[0]
+    async goToProductById (id) {
+        await browser.url(`https://www.demoblaze.com/prod.html?idp_=${id}`)
     }
 
+    async getProducts () {
+        const products = await $$('#tbodyid .card-block')
+        return products
+    }
 
 
 }

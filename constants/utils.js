@@ -2,7 +2,7 @@ import { generateFromEmail } from 'unique-username-generator'
 
 export const userName = generateFromEmail (
     'buk.challenge@example.com',
-    5
+    6
 );
 
 export const signUpPassword = 'test';
